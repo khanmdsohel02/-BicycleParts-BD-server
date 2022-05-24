@@ -4,7 +4,7 @@ import Support from '../components/Support';
 
 const Home = () => {
     return (
-        <div className='mt-28'>
+        <div className='mt-24'>
         <HBanner />
         <Support/>
         </div>

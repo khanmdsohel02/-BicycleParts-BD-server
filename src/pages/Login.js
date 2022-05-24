@@ -42,7 +42,7 @@ const Login = () => {
   };
     return (
         
-  <div className='h-screen flex justify-center items-center mt-28'>
+  <div className='h-screen flex justify-center items-center mt-24'>
     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} class="card-body">
             <h1 className='text-center text-2xl  font-bold'>Login</h1>
