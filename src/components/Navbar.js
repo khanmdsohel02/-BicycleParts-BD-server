@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 import auth from '../firebaseConfig';
 
 const Navbar = ({ children }) => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+
   const logout = () => {
     signOut(auth);
   };
@@ -28,7 +29,9 @@ const Navbar = ({ children }) => {
           <li><NavLink to ='/home' className='rounded-lg'>HOME</NavLink></li>
           <li><NavLink to ='/about' className='rounded-lg'>ABOUT</NavLink></li>
           <li><NavLink to ='/contact' className='rounded-lg'>CONTACT</NavLink></li>
-          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg'>LOGIN</NavLink>}</li>  
+          {user && <li><NavLink to ='/dashboard' className='rounded-lg'>DASHBOARD</NavLink></li>}
+          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg'>LOGIN</NavLink>}</li> 
+          {user?.displayName && <button class="btn btn-outline hover:bg-base-200 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>} 
         </ul>
       </div>
     </div>
@@ -37,9 +40,11 @@ const Navbar = ({ children }) => {
   <div className="drawer-side">
     <label for="my-drawer-3" className="drawer-overlay"></label> 
     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 gap-y-2">
+    {user?.displayName && <button class="btn btn-outline hover:bg-base-100 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>}
       <li><NavLink to ='/home' className='rounded-lg'>HOME</NavLink></li>
           <li><NavLink to ='/about' className='rounded-lg'>ABOUT</NavLink></li>
           <li><NavLink to ='/contact' className='rounded-lg'>CONTACT</NavLink></li>
+          {user && <li><NavLink to ='/dashboard' className='rounded-lg'>DASHBOARD</NavLink></li>}
           <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg'>LOGIN</NavLink>}</li> 
     </ul>
   </div>
