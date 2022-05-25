@@ -1,12 +1,13 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebaseConfig';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -23,16 +24,16 @@ const SignUp = () => {
     
     let signinError;
   
-    if (loading || googleLoading || updating) {
+    if (loading || googleLoading || updating || fbLoading) {
       return <Loading/>
     }
   
-    if (error || googleError || updateError) {
+    if (error || googleError || updateError || fbError) {
       signinError = <p className='text-red-500'>{error?.message || googleError?.message || updateError?.message}</p>
     }
   
   
-    if (user || googleUser) {
+    if (user || googleUser || fbUser) {
         console.log(user, googleUser)
         navigate(from, { replace: true });
     }
@@ -113,6 +114,9 @@ const SignUp = () => {
               <button
                 onClick={() =>signInWithGoogle()}
                 className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>Continue With Google</button>
+               <button
+              onClick={() =>signInWithFacebook()}
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'>Continue With FaceBook</button>
         </form>
       </div>
   </div>

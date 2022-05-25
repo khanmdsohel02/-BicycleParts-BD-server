@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebaseConfig'
 import { useForm } from "react-hook-form";
 import Loading from '../components/Loading';
@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [
     signInWithEmailAndPassword,
@@ -22,16 +23,16 @@ const Login = () => {
 
   let signinError;
 
-  if (loading || googleLoading) {
+  if (loading || googleLoading || fbLoading) {
     return <Loading/>
   }
 
-  if (error || googleError) {
+  if (error || googleError || fbError) {
     signinError = <p className='text-red-500'>{error?.message || googleError?.message}</p>
   }
 
 
-  if (user || googleUser) {
+  if (user || googleUser || fbUser) {
     console.log(user, googleUser)
     navigate(from, { replace: true });
   }
@@ -95,6 +96,9 @@ const Login = () => {
             <button
               onClick={() =>signInWithGoogle()}
               className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>Continue With Google</button>
+            <button
+              onClick={() =>signInWithFacebook()}
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'>Continue With FaceBook</button>
       </form>
     </div>
 </div>
