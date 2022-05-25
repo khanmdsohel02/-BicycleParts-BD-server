@@ -12,6 +12,9 @@ const DashboardSidebar = ({children}) => {
   <div class="drawer-side">
     <label for="my-drawer-2" class="drawer-overlay"></label> 
     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+         {/* For User & Admin */}
+      <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
+          <NavLink to='my-profile'>My Profile</NavLink></li> 
         {/* For User */}
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='my-orders'>My Orders</NavLink></li>
@@ -26,9 +29,6 @@ const DashboardSidebar = ({children}) => {
           <NavLink to='manage-orders'>Manage Orders</NavLink></li>
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='add-admin'>Add Admin</NavLink></li>
-          {/* For User & Admin */}
-      <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
-          <NavLink to='my-profile'>My Profile</NavLink></li> 
     </ul>
   
   </div>

@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
           <li><NavLink to ='/home' className='rounded-lg text-base font-semibold'>HOME</NavLink></li>
           <li><NavLink to ='/about' className='rounded-lg text-base font-semibold'>ABOUT</NavLink></li>
           <li><NavLink to ='/contact' className='rounded-lg text-base font-semibold'>CONTACT</NavLink></li>
-          {user && <li><NavLink to ='/dashboard' className='rounded-lg text-base font-semibold'>DASHBOARD</NavLink></li>}
+          {user && <li><NavLink to ='/dashboard/my-profile' className='rounded-lg text-base font-semibold'>DASHBOARD</NavLink></li>}
           <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg text-base font-semibold'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg text-base font-semibold'>LOGIN</NavLink>}</li> 
           {user?.displayName && <button class="btn btn-outline hover:bg-base-200 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>}
           
