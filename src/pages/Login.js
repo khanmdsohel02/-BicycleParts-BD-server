@@ -4,7 +4,8 @@ import auth from '../firebaseConfig'
 import { useForm } from "react-hook-form";
 import Loading from '../components/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import { SiFacebook } from 'react-icons/si';
+import { RiGoogleFill } from 'react-icons/ri';
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -93,12 +94,14 @@ const Login = () => {
         <input value='Login' type="submit" className='btn mt-5 bg-indigo-400 outline outline-offset-2 outline-indigo-100 hover:bg-indigo-500' />
         <p className='text-center'>New?  <Link className='text-indigo-300' to='/signup'> SignUp Here</Link></p> 
         <div class="divider">OR</div>
-            <button
-              onClick={() =>signInWithGoogle()}
-              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>Continue With Google</button>
-            <button
+        <button
+                onClick={() =>signInWithGoogle()}
+                className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>
+                <span className='text-indigo-600 pr-2'><RiGoogleFill /></span>
+                Continue With Google</button>
+               <button
               onClick={() =>signInWithFacebook()}
-              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'>Continue With FaceBook</button>
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2'><SiFacebook /></span> Continue With FaceBook</button>
       </form>
     </div>
 </div>

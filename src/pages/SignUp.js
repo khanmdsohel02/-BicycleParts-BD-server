@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebaseConfig';
 import Loading from '../components/Loading';
+import { SiFacebook } from 'react-icons/si';
+import { RiGoogleFill } from 'react-icons/ri';
+
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -113,10 +116,12 @@ const SignUp = () => {
           <div class="divider">OR</div>
               <button
                 onClick={() =>signInWithGoogle()}
-                className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>Continue With Google</button>
+                className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>
+                <span className='text-indigo-600 pr-2'><RiGoogleFill /></span>
+                Continue With Google</button>
                <button
               onClick={() =>signInWithFacebook()}
-              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'>Continue With FaceBook</button>
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2'><SiFacebook /></span> Continue With FaceBook</button>
         </form>
       </div>
   </div>
