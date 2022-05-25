@@ -32,11 +32,11 @@ const Navbar = ({ children }) => {
       <div className="flex-none hidden lg:block">
         <ul className="menu menu-horizontal gap-x-3">
          
-          <li><NavLink to ='/home' className='rounded-lg'>HOME</NavLink></li>
-          <li><NavLink to ='/about' className='rounded-lg'>ABOUT</NavLink></li>
-          <li><NavLink to ='/contact' className='rounded-lg'>CONTACT</NavLink></li>
-          {user && <li><NavLink to ='/dashboard' className='rounded-lg'>DASHBOARD</NavLink></li>}
-          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg'>LOGIN</NavLink>}</li> 
+          <li><NavLink to ='/home' className='rounded-lg text-base font-semibold'>HOME</NavLink></li>
+          <li><NavLink to ='/about' className='rounded-lg text-base font-semibold'>ABOUT</NavLink></li>
+          <li><NavLink to ='/contact' className='rounded-lg text-base font-semibold'>CONTACT</NavLink></li>
+          {user && <li><NavLink to ='/dashboard' className='rounded-lg text-base font-semibold'>DASHBOARD</NavLink></li>}
+          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg text-base font-semibold'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg text-base font-semibold'>LOGIN</NavLink>}</li> 
           {user?.displayName && <button class="btn btn-outline hover:bg-base-200 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>}
           
                 <div className='mt-2'>
@@ -52,11 +52,11 @@ const Navbar = ({ children }) => {
     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 gap-y-2">
     {user?.displayName && <button class="btn btn-outline hover:bg-base-100 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>}
     {user && <img className='h-10 w-10 rounded-full ml-3' src={user?.photoURL || 'https://i.ibb.co/XCkK8mp/logoo.png'} alt="logo" />}
-      <li><NavLink to ='/home' className='rounded-lg'>HOME</NavLink></li>
-          <li><NavLink to ='/about' className='rounded-lg'>ABOUT</NavLink></li>
-          <li><NavLink to ='/contact' className='rounded-lg'>CONTACT</NavLink></li>
-          {user && <li><NavLink to ='/dashboard' className='rounded-lg'>DASHBOARD</NavLink></li>}
-          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg'>LOGIN</NavLink>}</li> 
+      <li><NavLink to ='/home' className='rounded-lg text-base font-semibold'>HOME</NavLink></li>
+          <li><NavLink to ='/about' className='rounded-lg text-base font-semibold'>ABOUT</NavLink></li>
+          <li><NavLink to ='/contact' className='rounded-lg text-base font-semibold'>CONTACT</NavLink></li>
+          {user && <li><NavLink to ='/dashboard' className='rounded-lg text-base font-semibold'>DASHBOARD</NavLink></li>}
+          <li>{user? <NavLink onClick={logout} to ='/' className='rounded-lg text-base font-semibold'>Sign Out</NavLink> :<NavLink to ='/login' className='rounded-lg text-base font-semibold'>LOGIN</NavLink>}</li> 
     </ul>
   </div>
 </div>
