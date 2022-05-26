@@ -6,6 +6,7 @@ import auth from '../firebaseConfig';
 import Loading from '../components/Loading';
 import { SiFacebook } from 'react-icons/si';
 import { RiGoogleFill } from 'react-icons/ri';
+import useToken from '../hooks/useToken';
 
 
 const SignUp = () => {
@@ -19,7 +20,8 @@ const SignUp = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+    const [token] = useToken(user || googleUser || fbUser)
+    
     const navigate = useNavigate();
     const location = useLocation();
   
@@ -36,15 +38,16 @@ const SignUp = () => {
     }
   
   
-    if (user || googleUser || fbUser) {
-        console.log(user, googleUser)
+    if (token) {
         navigate(from, { replace: true });
     }
+    
     const onSubmit =  async data => {
-      console.log(data)
      await createUserWithEmailAndPassword(data.email, data.password)
       await updateProfile({ displayName: data.name});
-    };
+  };
+  
+
       return (
           
     <div className='h-screen flex justify-center items-center'>
@@ -117,11 +120,11 @@ const SignUp = () => {
               <button
                 onClick={() =>signInWithGoogle()}
                 className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>
-                <span className='text-indigo-600 pr-2'><RiGoogleFill /></span>
+                <span className='text-indigo-600 pr-2 text-3xl'><RiGoogleFill /></span>
                 Continue With Google</button>
                <button
               onClick={() =>signInWithFacebook()}
-              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2'><SiFacebook /></span> Continue With FaceBook</button>
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2 text-3xl'><SiFacebook /></span> Continue With FaceBook</button>
         </form>
       </div>
   </div>

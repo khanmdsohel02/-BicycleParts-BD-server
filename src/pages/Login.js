@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebaseConfig'
 import { useForm } from "react-hook-form";
@@ -6,6 +6,7 @@ import Loading from '../components/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SiFacebook } from 'react-icons/si';
 import { RiGoogleFill } from 'react-icons/ri';
+import useToken from '../hooks/useToken';
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -17,6 +18,9 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user || googleUser || fbUser)
+     
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,10 +37,10 @@ const Login = () => {
   }
 
 
-  if (user || googleUser || fbUser) {
-    console.log(user, googleUser)
+  if (token) {
     navigate(from, { replace: true });
   }
+  
   const onSubmit = ({email, password}) => {
     console.log(email, password)
     signInWithEmailAndPassword(email, password)
@@ -97,11 +101,11 @@ const Login = () => {
         <button
                 onClick={() =>signInWithGoogle()}
                 className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100'>
-                <span className='text-indigo-600 pr-2'><RiGoogleFill /></span>
+                <span className='text-indigo-600 pr-2 text-3xl'><RiGoogleFill /></span>
                 Continue With Google</button>
                <button
               onClick={() =>signInWithFacebook()}
-              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2'><SiFacebook /></span> Continue With FaceBook</button>
+              className='btn bg-base-200 text-indigo-500 text-lg hover:text-white hover:bg-indigo-400 outline outline-offset-2 outline-indigo-100 mt-3'><span className='text-indigo-600 pr-2 text-3xl'><SiFacebook /></span> Continue With FaceBook</button>
       </form>
     </div>
 </div>

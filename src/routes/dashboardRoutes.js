@@ -3,8 +3,8 @@ import AddReview from '../pages/Dashboard/AddReview'
 import AddProduct from '../pages/Dashboard/AddProduct'
 import ManageProducts from '../pages/Dashboard/ManageProducts'
 import ManageOrders from '../pages/Dashboard/ManageOrders'
-import AddAdmin from '../pages/Dashboard/AddAdmin'
 import MyProfile from '../pages/Dashboard/MyProfile'
+import SetUserRole from '../pages/Dashboard/SetUserRole'
 
 
 
@@ -14,6 +14,6 @@ export const dashboardRoutes = [
     {path:'add-product', name:'AddProduct', Component: AddProduct},
     {path:'manage-products', name:'ManageProducts', Component: ManageProducts},
     {path:'manage-orders', name:'ManageOrders', Component: ManageOrders},
-    {path:'add-admin', name:'AddAdmin', Component: AddAdmin},
+    {path:'user-role', name:'SetUserRole', Component: SetUserRole},
     {path:'my-profile', name:'MyProfile', Component: MyProfile},
 ]

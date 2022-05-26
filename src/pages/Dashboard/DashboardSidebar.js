@@ -1,7 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebaseConfig';
 
-const DashboardSidebar = ({children}) => {
+const DashboardSidebar = ({ children }) => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+
     return (
         <div class="drawer drawer-mobile bg-indigo-100">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -16,11 +22,12 @@ const DashboardSidebar = ({children}) => {
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='my-profile'>My Profile</NavLink></li> 
         {/* For User */}
-      <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
+       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='my-orders'>My Orders</NavLink></li>
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='add-review'>Add Review</NavLink></li>
-          {/* For Admin */}
+        {/* For admin */}
+       {admin && <div>
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='add-product'>Add Product</NavLink></li>
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
@@ -28,7 +35,10 @@ const DashboardSidebar = ({children}) => {
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
           <NavLink to='manage-orders'>Manage Orders</NavLink></li>
       <li className='mb-2 bg-indigo-400 text-white text-xl rounded-2xl'>
-          <NavLink to='add-admin'>Add Admin</NavLink></li>
+          <NavLink to='user-role'>Set User Role</NavLink></li>
+      </div>}
+            
+          
     </ul>
   
   </div>

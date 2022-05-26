@@ -1,13 +1,13 @@
 import React from 'react';
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
-import { GrDeliver } from 'react-icons/gr';
+import { MdOutlineDeliveryDining } from 'react-icons/md';
 import { GiReturnArrow } from 'react-icons/gi';
 import { MdSupportAgent } from 'react-icons/md';
 
 
 const Support = () => {
     return (
-         <div className='bg-indigo-400 lg:grid grid-cols-4 gap-4 lg:pl-32  w-[95%] mx-auto'>
+         <div className='bg-indigo-400 grid lg:grid-cols-4 md:md:grid-cols-2 md: pl-20 gap-4 lg:pl-32 lg:rounded-tr-full lg:rounded-bl-full'>
             
                 <div className='flex  items-center py-10'>
                 <div className='text-5xl text-white pr-4'><MdOutlineProductionQuantityLimits /></div>
@@ -17,7 +17,7 @@ const Support = () => {
                 </div>
                 </div>
                 <div className='flex  items-center py-10'>
-                <div className='text-5xl text-white pr-4'><GrDeliver /></div>
+                <div className='text-5xl text-white pr-4'><MdOutlineDeliveryDining /></div>
                 <div>
                     <h1 className='text-2xl text-white'>Fast Delivery</h1>
                     <small className='text-white'>Free Shipping over $ 500 </small>
