@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {  Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import BusinessSummary from '../components/BusinessSummary';
 import HBanner from '../components/HBanner';
 import Part from '../components/Part';
@@ -7,7 +11,15 @@ import useParts from '../hooks/useParts';
 
 const Home = () => {
     const [parts] = useParts()
-    return (
+     const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+        .then(res => res.json())
+        .then(data => setReviews(data))
+    }, [])
+        
+
+ return(
         <div className='mt-24'>
         <HBanner />
         <div className='w-[95%] mx-auto'>
@@ -21,6 +33,27 @@ const Home = () => {
         </div>
         <BusinessSummary/>
         </div>
+         <div className=' w-[70%] m-auto mt-24 bg-indigo-400 py-10 rounded-tl-full rounded-tr-full'>
+               <h1 className='text-center text-3xl text-white'>Dealer Review</h1>
+                < Swiper  modules={[Pagination]}
+      spaceBetween={20}
+      slidesPerView={1}
+      pagination={{ clickable: true }}>
+                    {
+                        reviews.map(({ image, username, about }) => {
+                            return (
+                               < SwiperSlide className = 'flex flex-col items-center text-center p-8 w-[100%]' >
+                               <div>
+                                  <img className="mb-6  w-48 mask mask-squircle" src={image} alt="client" />
+                                </div>
+                                 <div>
+                                      <h3 className='text-xl text-white'>{username}</h3>
+                                      <p className='text-center py-4 text-white'>{about}</p>
+                                 </div>
+                                </SwiperSlide>
+                            ) } ) }
+                </Swiper>
+         </div>
         </div>
     );
 };
