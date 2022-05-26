@@ -1,4 +1,5 @@
 import React from 'react';
+import BusinessSummary from '../components/BusinessSummary';
 import HBanner from '../components/HBanner';
 import Part from '../components/Part';
 import Support from '../components/Support';
@@ -18,6 +19,7 @@ const Home = () => {
         part = {part}
         />)}
         </div>
+        <BusinessSummary/>
         </div>
         </div>
     );

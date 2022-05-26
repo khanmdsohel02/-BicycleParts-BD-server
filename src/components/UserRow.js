@@ -20,7 +20,6 @@ const UserRow = ({ user }) => {
     }
     return (
         <tr>
-        <th>{}</th>
         <td>{email}</td>
         <td>{userName}</td>
         <td>{(role === 'admin')? <p className='text-xs'>Already Admin</p> :<button onClick={admin} class="btn btn-sm mr-2 ">Admin</button>}</td>

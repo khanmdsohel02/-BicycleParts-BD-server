@@ -28,14 +28,13 @@ const SetUserRole = () => {
    },[])
     
     return (
-        <div className='mt-24'>
-            <h1>Use's</h1>
-            <div class="overflow-x-auto w-fit h-screen">
+        <>
+            <h1 className='mt-4 text-xl font-semibold text-indigo-700'>MANAGE USER'S</h1>
+            <div class="overflow-x-auto w-3/5 mt-4">
   <table class="table w-full">
     {/* <!-- head --> */}
     <thead>
       <tr>
-        <th>SL .</th>
         <th>EMAIL</th>
         <th>nAME</th>
         <th>SET ROLE</th>
@@ -54,7 +53,7 @@ const SetUserRole = () => {
            
 
             
-        </div>
+        </>
     );
 };
 
