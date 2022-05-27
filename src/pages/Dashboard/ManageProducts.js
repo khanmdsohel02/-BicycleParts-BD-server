@@ -1,6 +1,4 @@
-import React from 'react';
 import ManagePart from '../../components/ManagePart';
-
 import useParts from '../../hooks/useParts';
 
 
@@ -43,7 +41,7 @@ const ManageProducts = () => {
       key={part._id}
       part ={part}
       handleDelete={handleDelete}
-      />
+      />,
       )  }
   </tbody>
 </table>
