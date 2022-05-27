@@ -5,20 +5,21 @@ import auth from '../firebaseConfig';
 
 
 const OrderModal = ({ modalData }) => {
-  const { name, quantity, price } = modalData;
+  const {image, name, quantity, price } = modalData;
   const [user] = useAuthState(auth);
 
   const handleOrder = event => {
     event.preventDefault();
     const partName = event.target.partname.value;
     const orderedQuantity = event.target.orderedquantity.value;
+    const imgUrl = image;
     const userName = user?.displayName;
     const userEmail = user?.email;
     const userPhone = event.target.userphone.value;
     const whereSend = event.target.wheresend.value;
     const orderCost = parseInt(price) * parseInt(orderedQuantity)
 
-    const orderDetails = {partName, orderedQuantity,orderCost, userName, userEmail, userPhone, whereSend }
+    const orderDetails = {partName, orderedQuantity,orderCost,imgUrl, userName, userEmail, userPhone, whereSend }
     console.log(orderDetails)
        
  fetch('http://localhost:5000/order', {
