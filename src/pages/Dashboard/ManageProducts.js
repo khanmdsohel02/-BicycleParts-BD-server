@@ -4,22 +4,20 @@ import useParts from '../../hooks/useParts';
 
 const ManageProducts = () => {
     const [parts, setParts] = useParts()
+
     const handleDelete = id => {
-        const proceed = window.confirm('Are you Sure?');
-        if (proceed) {
-            const url = `http://localhost:5000/part/${id}`;
-            fetch(url, {
-                method:'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    const remaining = parts.filter(part => part._id !== id);
-                    setParts(remaining)
-                   
-            })
-        }
-    }
+      const proceed = window.confirm('Are you Sure?');
+      if (proceed) {
+          const url = `http://localhost:5000/part/${id}`;
+          fetch(url, {
+              method:'DELETE'
+          })
+              .then(res => res.json())
+              .then(data => {
+                  console.log(data);
+                  const remaining = parts.filter(part => part._id !== id);
+                  setParts(remaining)
+          })}}
  
     return (
 <>

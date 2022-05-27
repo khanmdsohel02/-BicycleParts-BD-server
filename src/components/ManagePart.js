@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ManagePart = ({ part, handleDelete }) => {
-    const { name, image, quantity, price } = part;
+    const {_id, name, image, quantity, price } = part;
 
     return (
         <tr>
@@ -10,7 +10,7 @@ const ManagePart = ({ part, handleDelete }) => {
         <td>{name}</td>
         <td>{quantity}</td>
         <td>{price}</td>
-        <td><button onClick={() =>handleDelete(part._id)} className="btn btn-sm bg-indigo-400 hover:bg-indigo-200 hover:text-red-500">dalete</button></td>
+        <td><button onClick={() =>handleDelete(_id)} className="btn btn-sm bg-indigo-400 hover:bg-indigo-200 hover:text-red-500">dalete</button></td>
       </tr>
     
     );

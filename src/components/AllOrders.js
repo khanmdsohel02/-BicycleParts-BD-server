@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllOrders = ({ order }) => {
-    const { partName, orderedQuantity, orderCost, imgUrl, whereSend,userName, userPhone, userEmail } = order;
+  
+    const {_id, partName, orderedQuantity, orderCost, imgUrl, whereSend,userName, userPhone, userEmail } = order;
     return (
         <tr>
         <th><img className="w-16 rounded-full" src={imgUrl} alt='img' /></th>
@@ -12,9 +14,13 @@ const AllOrders = ({ order }) => {
         <td>{userEmail}</td>
         <td>{userPhone}</td>
         <td className='pl-8'>{whereSend}</td>
-        <td></td>
-        <td><button class="btn btn-sm">DELETE</button></td>
-        
+        <td>
+          {(order.orderCost && !order.paid) ? <Link to={`/dashboard/payment/${_id}`}><button class="btn btn-sm">PAY</button></Link>: <span>PAID</span>}
+        </td>
+        <td>
+          <button class="btn btn-sm" disabled={order.orderCost && order.paid}>DELETE</button>
+        </td>
+         
         
       </tr>
     );

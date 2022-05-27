@@ -5,7 +5,7 @@ import ManageProducts from '../pages/Dashboard/ManageProducts'
 import ManageOrders from '../pages/Dashboard/ManageOrders'
 import MyProfile from '../pages/Dashboard/MyProfile'
 import SetUserRole from '../pages/Dashboard/SetUserRole'
-
+import Payment from '../pages/Dashboard/Payment'
 
 
 export const dashboardRoutes = [
@@ -16,4 +16,5 @@ export const dashboardRoutes = [
     {path:'manage-orders', name:'ManageOrders', Component: ManageOrders},
     {path:'user-role', name:'SetUserRole', Component: SetUserRole},
     {path:'my-profile', name:'MyProfile', Component: MyProfile},
+    {path:'payment/:id', name:'Payment', Component: Payment},
 ]

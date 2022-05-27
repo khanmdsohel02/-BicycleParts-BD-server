@@ -31,7 +31,7 @@ const ManageOrders = () => {
              <th>USER EMAIL</th>
              <th>PHONE</th>
              <th>WHERE SEND(ADDRESS) </th>
-             <th>STATUS</th>
+             <th>PAYMENT</th>
              <th>DELETE</th>
            </tr>
          </thead>

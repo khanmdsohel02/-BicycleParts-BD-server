@@ -19,13 +19,27 @@ const MyOrders = () => {
           }
           getMyOrder()
          }
-       }, [user])
+    }, [user])
+  
+    const handleDelete = id => {
+      const proceed = window.confirm('Are you Sure?');
+      if (proceed) {
+          const url = `http://localhost:5000/order/${id}`;
+          fetch(url, {
+              method:'DELETE'
+          })
+              .then(res => res.json())
+              .then(data => {
+                  console.log(data);
+                  const remaining = myOrders.filter(order => order._id !== id);
+                  setMyOrders(remaining)
+          })}}
   
     return (
         
         <>
         <h1 className='mt-4 text-xl font-semibold text-indigo-700'>YOUR ORDER'S </h1>
-       <div className="overflow-x-auto w-3/5 mt-4">
+       <div className="overflow-x-auto w-[90%] mt-4">
        <table className="table w-full">
          <thead>
            <tr>
@@ -34,13 +48,16 @@ const MyOrders = () => {
              <th>ORDER QUANTITY</th>
              <th>TOTAL COST</th>
              <th>WHERE SEND(ADDRESS) </th>
+             <th>PAYMENT</th>
+             <th>DELETE</th>
            </tr>
          </thead>
          <tbody>
         {myOrders.map(order =>
            <MyOrder
              key={order._id}
-             order ={order}
+            order={order}
+            handleDelete ={handleDelete}
              />,
              )  }
          </tbody>
