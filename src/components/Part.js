@@ -3,7 +3,7 @@ import React from 'react';
 const Part = ({ part }) => {
     const { name, image, about, quantity, price } = part;
     return (
-        <div class="card w-96 bg-base-100 shadow-xl z-0">
+        <div class="card lg:w-96 bg-base-100 shadow-xl z-0">
         <figure class="px-10 pt-10">
           <img src={image} alt="img" class="rounded-xl" />
         </figure>
