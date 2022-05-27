@@ -9,6 +9,7 @@ import Part from '../components/Part';
 import Support from '../components/Support';
 import useParts from '../hooks/useParts';
 import Branding from '../components/Branding';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [parts] = useParts()
@@ -56,6 +57,7 @@ const Home = () => {
                 </Swiper>
          </div>
          <Branding/>
+         <Footer/>
         </div>
     );
 };

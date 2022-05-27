@@ -3,7 +3,7 @@ const Branding = () => {
 
     return (
         <div className="mx-8">
-             <div class="carousel w-full h-4/5 mt-16 border-2 rounded border-indigo-400">
+             <div class="carousel w-full h-4/5 mt-16">
   <div id="brand1" class="carousel-item w-full">
     <img src={'https://i.ibb.co/82MBw0H/brand.png'} alt='banner' class="w-full" />
   </div> 
@@ -16,7 +16,7 @@ const Branding = () => {
   <div id="brand4" class="carousel-item w-full">
   <img src={'https://i.ibb.co/bH9GWpr/brand3.png'}  alt='banner' class="w-full" />
   </div> 
-  <div id="brand4" class="carousel-item w-full">
+  <div id="brand5" class="carousel-item w-full">
   <img src={'https://i.ibb.co/fdMrr2K/brand4.png'}  alt='banner' class="w-full" />
   </div> 
 </div> 
