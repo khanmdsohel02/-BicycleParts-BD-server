@@ -9,7 +9,7 @@ const ManageOrders = () => {
     
     useEffect(() => {
               const getOrders = async () => {
-              const url = `http://localhost:5000/orders`;
+              const url = `https://ancient-beyond-42134.herokuapp.com/orders`;
               const { data } = await axios.get(url);
               setAllOrders(data);
           }

@@ -10,19 +10,19 @@ const OrderModal = ({ modalData }) => {
 
   const handleOrder = event => {
     event.preventDefault();
-    const partName = event.target.partname.value;
-    const orderedQuantity = event.target.orderedquantity.value;
-    const imgUrl = image;
-    const userName = user?.displayName;
-    const userEmail = user?.email;
-    const userPhone = event.target.userphone.value;
-    const whereSend = event.target.wheresend.value;
-    const orderCost = parseInt(price) * parseInt(orderedQuantity)
+    const partname = event.target.partname.value;
+    const orderedquantity = event.target.orderedquantity.value;
+    const imgurl = image;
+    const username = user?.displayName;
+    const useremail = user?.email;
+    const phone = event.target.phone.value;
+    const wheresend = event.target.wheresend.value;
+    const ordercost = parseInt(price) * parseInt(orderedquantity)
 
-    const orderDetails = {partName, orderedQuantity,orderCost,imgUrl, userName, userEmail, userPhone, whereSend }
+    const orderDetails = {partname, orderedquantity,ordercost,imgurl, username, useremail, phone, wheresend }
     console.log(orderDetails)
        
- fetch('http://localhost:5000/order', {
+ fetch('https://ancient-beyond-42134.herokuapp.com/order', {
   method: 'POST',
   headers: {
       'content-type':'application/json'
@@ -34,7 +34,7 @@ const OrderModal = ({ modalData }) => {
       console.log(result);
       const data = result;
       if (data) {
-        toast.success(`Order Successfully Place, Order Cost:$ ${orderCost}`, { id: "success" });
+        toast.success(`Order Successfully Place, Order Cost:$ ${ordercost}`, { id: "success" });
         event.target.reset()
         
         
@@ -55,7 +55,7 @@ const OrderModal = ({ modalData }) => {
     <input type="number" name='orderedquantity' placeholder="Order more than 500 unit" required className="input input-bordered w-full max-w-xs" />
     <input type="text" name='username' required value={user?.displayName} disabled className="input input-bordered w-full max-w-xs" />
     <input type="email" name='useremail'required value={user?.email} disabled className="input input-bordered w-full max-w-xs" />
-    <input type="number" name='userphone' required placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+    <input type="number" name='phone' required placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
     <input type="text" name='wheresend' required placeholder="Address where to send" className="input input-bordered w-full max-w-xs" />
     <input htmlFor="my-modal"  type="submit" value='Submit order' className="btn w-full max-w-xs" />
     </form>

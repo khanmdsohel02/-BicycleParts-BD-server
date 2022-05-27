@@ -9,7 +9,7 @@ const BusinessSummary = () => {
 const [totalReview, setTotalReview]  = useState('')
 console.log(totalReview)
     useEffect(() => {
-        fetch('http://localhost:5000/reviewCount')
+        fetch('https://ancient-beyond-42134.herokuapp.com/reviewCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;

@@ -13,7 +13,7 @@ const MyOrders = () => {
            const email = user?.email;
         if (email) {
               const getMyOrder = async () => {
-              const url = `http://localhost:5000/my-order?email=${email}`;
+              const url = `https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`;
               const { data } = await axios.get(url);
               setMyOrders(data);
           }
@@ -24,7 +24,7 @@ const MyOrders = () => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })

@@ -3,9 +3,9 @@ import toast from 'react-hot-toast';
 
 
 const UserRow = ({ user }) => {
-    const { email, userName, role } = user;
+    const { email, username, role } = user;
     const admin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://ancient-beyond-42134.herokuapp.com/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,7 +21,7 @@ const UserRow = ({ user }) => {
     return (
         <tr>
         <td>{email}</td>
-        <td>{userName}</td>
+        <td>{username}</td>
         <td>{(role === 'admin')? <p className='text-xs'>Already Admin</p> :<button onClick={admin} className="btn btn-sm mr-2 ">Admin</button>}</td>
       </tr>
     );

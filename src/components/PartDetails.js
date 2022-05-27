@@ -10,13 +10,13 @@ const PartDetails = () => {
 
     
     useEffect(() => {
-        fetch(`http://localhost:5000/part/${id}`)
+        fetch(`https://ancient-beyond-42134.herokuapp.com/part/${id}`)
             .then(res => res.json())
             .then(data => {
               setPart(data)
               
             })
-    }, [])
+    }, [id])
 
     return (
         <>
