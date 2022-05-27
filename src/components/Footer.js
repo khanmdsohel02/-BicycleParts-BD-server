@@ -27,18 +27,18 @@ const Footer = () => {
                 <div className='lg:ml-28 md:ml-40'>
                     <h4 className='text-2xl text-indigo-700 pb-7'>Opening Hours</h4>
                     <p className='text-lg text-indigo-500'><span className='text-lg text-indigo-500'>Sunday - Thursday :</span>   24 Hour</p>
-                    <div class="divider"></div> 
+                    <div className="divider"></div> 
                     <p className='text-lg text-indigo-500'><span className='text-lg text-indigo-500'>Friday :</span> close</p>
-                    <div class="divider"></div> 
+                    <div className="divider"></div> 
                     < p className='text-lg text-indigo-500' > <span className='text-lg text-indigo-500'>Saturday :</span>  10.00 am to 05.00 pm</p >
-                    <div class="divider"></div> 
+                    <div className="divider"></div> 
                 </div>
                 <div className='lg:ml-32 md:ml-40'>
                     <h1 className='text-2xl text-indigo-700 pb-7'>CONTACT US</h1>
                     <p className='text-lg text-indigo-500'>khanmdsohel1998@gmail.com</p>
-                    <div class="divider"></div> 
+                    <div className="divider"></div> 
                     <p className='text-lg text-indigo-500'>+880 01832716948</p>
-                    <div class="divider"></div> 
+                    <div className="divider"></div> 
                 </div>
             </div>
             <p className='text-center text-indigo-500'>Copyright © 2022 || bicyclepartsbd</p>

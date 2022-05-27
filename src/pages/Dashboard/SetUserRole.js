@@ -30,8 +30,8 @@ const SetUserRole = () => {
     return (
         <>
             <h1 className='mt-4 text-xl font-semibold text-indigo-700'>MANAGE USER'S</h1>
-            <div class="overflow-x-auto w-3/5 mt-4">
-  <table class="table w-full">
+            <div className="overflow-x-auto w-3/5 mt-4">
+  <table className="table w-full">
     {/* <!-- head --> */}
     <thead>
       <tr>

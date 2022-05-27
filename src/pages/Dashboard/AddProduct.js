@@ -42,69 +42,69 @@ const AddProduct = () => {
       <>
         <h1 className='mt-10 text-xl font-semibold'>ADD PRODUCT</h1>
      <div className='h-screen flex justify-center items-center -mt-28'>
-       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleAddProduct} class="card-body">
-        <div class="form-control">
+       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={handleAddProduct} className="card-body">
+        <div className="form-control">
           <input  
            name='email'
            disabled
            value={user?.email}
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Parts Name</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Parts Name</span>
           </label>
           <input 
            type="text"
            name='name'
            placeholder="Parts Name" 
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Part Quantity</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Part Quantity</span>
           </label>
           <input 
            name='quantity'
            type="number"
            placeholder="Part Quantity" 
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Price(per unit)</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Price(per unit)</span>
           </label>
           <input  
            name='price'
            type="number"
            placeholder="Price" 
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">ABOUT</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">ABOUT</span>
           </label>
           <textarea
            type="taxt"
            name='about'
            placeholder="About Part" 
-           class="textarea textarea-bordered" /> 
+           className="textarea textarea-bordered" /> 
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Put Image URL</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Put Image URL</span>
           </label>
           <input
            name='image'
            type="text"
-           class="input input-bordered" /> 
+           className="input input-bordered" /> 
         </div>
-        <div class="form-control">
+        <div className="form-control">
         <input className='btn mt-3  w-80 bg-indigo-400 hover:bg-indigo-200 hover:text-black' type="submit" value='ADD PART' />
         </div>
       </form>

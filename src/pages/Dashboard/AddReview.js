@@ -42,35 +42,35 @@ const AddReview = () => {
         <>
         <h1 className='mt-10 text-xl font-semibold'>ADD REVIEW</h1>
      <div className='h-screen flex justify-center items-center -mt-60'>
-       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleAddReview} class="card-body">
-        <div class="form-control">
+       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={handleAddReview} className="card-body">
+        <div className="form-control">
           <input  
            name='img'
            disabled
            value={username}
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
+        <div className="form-control">
           <input 
            name='name'
            disabled
            value={image}          
-           class="input input-bordered" />
+           className="input input-bordered" />
              
         </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">FeedBack</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">FeedBack</span>
           </label>
           <textarea
            type="taxt"
            name='about'
            placeholder="Say Somthing" 
-           class="textarea textarea-bordered" />
+           className="textarea textarea-bordered" />
         </div>
-        <div class="form-control">
+        <div className="form-control">
         <input className='btn mt-3  w-80 bg-indigo-400 hover:bg-indigo-200 hover:text-black' type="submit" value='Add review' />
         </div>
       </form>

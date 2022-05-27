@@ -42,9 +42,9 @@ const Home = () => {
       slidesPerView={1}
       pagination={{ clickable: true }}>
                     {
-                        reviews.map(({ image, username, about }) => {
+                        reviews.map(({ image, username, about, _id }) => {
                             return (
-                               < SwiperSlide className = 'flex flex-col items-center text-center p-8 w-[100%]' >
+                               < SwiperSlide key={ _id} className = 'flex flex-col items-center text-center p-8 w-[100%]' >
                                <div>
                                   <img className="mb-6  w-48 mask mask-squircle" src={image} alt="client" />
                                 </div>
