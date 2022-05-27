@@ -6,13 +6,15 @@ const PartDetails = () => {
     const { id } = useParams();
     const [part, setPart] = useState([]);
     
+    
 
     
     useEffect(() => {
         fetch(`http://localhost:5000/part/${id}`)
             .then(res => res.json())
             .then(data => {
-                setPart(data)
+              setPart(data)
+              
             })
     }, [])
 
@@ -33,7 +35,7 @@ const PartDetails = () => {
   </div>
 </div>
 <div className='text-center lg:-mt-36 md:mt-28 sm:mt-28 lg:w-3/5  mx-auto'><article>{part.about}</article></div>
-<OrderModal part= {part}/>
+<OrderModal modalData= {part} setModalData={setPart}/>
         </>
     );
 };
