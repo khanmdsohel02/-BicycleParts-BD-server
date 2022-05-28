@@ -51,7 +51,7 @@ const MyOrders = () => {
              <th>WHERE SEND(ADDRESS) </th>
              <th>PAYMENT</th>
              <th>DELETE</th>
-             <th>DELETE</th>
+             <th>TransactionID</th>
            </tr>
          </thead>
          <tbody>
