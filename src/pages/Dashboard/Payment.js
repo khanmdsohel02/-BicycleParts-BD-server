@@ -12,7 +12,7 @@ const Payment = () => {
     console.log(order)
 
     useEffect(() => {
-        fetch(`https://ancient-beyond-42134.herokuapp.com/order/${id}`)
+        fetch(`http://localhost:5000/order/${id}`)
             .then(res => res.json())
             .then(data => {
               setOrder(data)

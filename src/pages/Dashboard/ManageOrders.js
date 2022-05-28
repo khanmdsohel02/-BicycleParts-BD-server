@@ -9,7 +9,7 @@ const ManageOrders = () => {
     
     useEffect(() => {
               const getOrders = async () => {
-              const url = `https://ancient-beyond-42134.herokuapp.com/orders`;
+              const url = `http://localhost:5000/orders`;
               const { data } = await axios.get(url);
               setAllOrders(data);
           }
@@ -20,7 +20,7 @@ const ManageOrders = () => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
+          const url = `http://localhost:5000/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })

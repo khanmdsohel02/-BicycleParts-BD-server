@@ -8,24 +8,27 @@ const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     const [user] = useAuthState(auth);
    console.log(myOrders)
-   const email = user?.useremail;
+   console.log(user?.email)
 
 
-    useEffect(() => {
-      fetch(`https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`)
+  useEffect(() => {
+    const email = user.email;
+      if (user) {
+        fetch(`http://localhost:5000/my-order?useremail=${email}`)
           .then(res => res.json())
           .then(data => {
             setMyOrders(data)
             
           })
-  }, [email])
+      }
+  }, [user])
  
 
   
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
+          const url = `http://localhost:5000/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })
