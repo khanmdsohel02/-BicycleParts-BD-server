@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
 import MyOrder from '../../components/MyOrder';
@@ -9,12 +9,8 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
    console.log(myOrders)
    const email = user?.email;
-   
-  
-  
-  
-  
-  if (email) {
+
+
     useEffect(() => {
       fetch(`https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`)
           .then(res => res.json())
@@ -22,8 +18,8 @@ const MyOrders = () => {
             setMyOrders(data)
             
           })
-  },[email])
-  }
+  }, [email])
+ 
 
   
     const handleDelete = id => {
