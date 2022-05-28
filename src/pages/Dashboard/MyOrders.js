@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
 import MyOrder from '../../components/MyOrder';
@@ -9,18 +8,23 @@ const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     const [user] = useAuthState(auth);
    console.log(myOrders)
-    
+   const email = user?.email;
+   
+  
+  
+  
+  
+  if (email) {
     useEffect(() => {
-           const email = user?.email;
-        if (email) {
-              const getMyOrder = async () => {
-              const url = `https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`;
-              const { data } = await axios.get(url);
-              setMyOrders(data);
-          }
-          getMyOrder()
-         }
-    }, [user])
+      fetch(`https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`)
+          .then(res => res.json())
+          .then(data => {
+            setMyOrders(data)
+            
+          })
+  },[email])
+  }
+
   
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
