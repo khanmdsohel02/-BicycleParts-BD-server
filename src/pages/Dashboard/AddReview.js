@@ -5,8 +5,9 @@ import auth from '../../firebaseConfig';
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
-    const username = user?.displayName
-   const image = user?.photoURL
+    const username = user?.displayName || 
+    'SoHeL'
+   const image = user?.photoURL || 'https://i.ibb.co/XCkK8mp/logoo.png'
     
     const handleAddReview = event => {
         event.preventDefault()
@@ -15,21 +16,24 @@ const AddReview = () => {
         const newPart = {username, image, about}
        console.log(newPart)
     
- fetch('http://localhost:5000/review', {
-            method: 'POST',
-            headers: {
-                'content-type':'application/json'
-            },
-            body: JSON.stringify(newPart)
-        })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result);
-                const data = result;
-                if (data) {
-                    toast.success("Successfully Added ", { id: "success" });
-                    event.target.reset()
-                        }})};
+        fetch('http://localhost:5000/review', {
+          method: 'POST',
+          headers: {
+              'content-type':'application/json'
+          },
+          body: JSON.stringify(newPart)
+      })
+          .then(res => res.json())
+          .then(result => {
+              console.log(result);
+              const data = result;
+              if (data) {
+                  toast.success("Successfully Added ", { id: "success" });
+                  event.target.reset()
+            }
+          })
+ 
+    };
     
        
   

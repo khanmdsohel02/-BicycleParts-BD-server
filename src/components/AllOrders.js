@@ -15,7 +15,7 @@ const AllOrders = ({ order, handleDelete }) => {
         <td>{phone}</td>
         <td className='pl-8'>{wheresend}</td>
         <td>
-          {(order.ordercost && !order.paid) ? <button className='btn btn-sm bg-indigo-100 text-red-500'>Pending</button>: <button className='btn px-7 btn-sm bg-indigo-500'>PAID</button>}
+          {(order.ordercost && !order.paid) ? <button className='btn btn-sm bg-indigo-100 text-red-500'>Pending</button>: <button className='btn px-7 btn-sm bg-indigo-500 hover:bg-indigo-500'>PAID</button>}
         </td>
         <td className='pl-8'> < button disabled={order.ordercost && order.paid} onClick={() =>handleDelete(_id)} class="btn btn-sm bg-red-600">DELETE</button></td>
          
