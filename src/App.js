@@ -6,13 +6,15 @@ import PrivateRoute from "./authentication/PrivateRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import { dashboardRoutes } from "./routes/dashboardRoutes";
 import { Toaster } from "react-hot-toast";
+import NotFound from "./pages/NotFound";
 
 
 
 function App() {
   return (
     
-      <Navbar>
+  
+       <Navbar>
       <Toaster />
       <Routes>
         {publicRoutes.map(({ path, Component }, index) => (
@@ -29,9 +31,10 @@ function App() {
         <Route key={index} path={path} 
         element={<Component />}/>))}     
        </Route>
-       
+       <Route path="*" element={<NotFound/>}/>
        </Routes>
       </Navbar>
+   
    
   );
 }

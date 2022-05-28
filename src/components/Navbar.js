@@ -36,8 +36,8 @@ const Navbar = ({ children }) => {
         <ul className="menu menu-horizontal gap-x-3">
          
           <li><NavLink to ='/' className='rounded-lg font-semibold'>HOME</NavLink></li>
-          <li><NavLink to ='/about' className='rounded-lg font-semibold'>ABOUT</NavLink></li>
-          <li><NavLink to ='/contact' className='rounded-lg font-semibold'>CONTACT</NavLink></li>
+          <li><NavLink to ='/portfolio' className='rounded-lg font-semibold'>MY PORTFOLIO</NavLink></li>
+          <li><NavLink to ='/blogs' className='rounded-lg font-semibold'>BLOGS</NavLink></li>
           {user && <li><NavLink to ='/dashboard/my-profile' className='rounded-lg font-semibold'>DASHBOARD</NavLink></li>}
           <li>{user? <Link onClick={logout} to ='/' className='rounded-lg font-semibold bg-indigo-100'><span className='text-2xl text-indigo-500'><HiOutlineLogout/></span>SIGN OUT</Link> :<NavLink to ='/login' className='rounded-lg font-semibold'>LOGIN</NavLink>}</li> 
           {user?.displayName && <button className="btn btn-outline hover:bg-base-200 hover:text-indigo-500 text-indigo-500 text-xl font-bold ">{ user?.displayName}</button>}
