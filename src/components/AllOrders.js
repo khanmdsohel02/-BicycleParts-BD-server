@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AllOrders = ({ order }) => {
+const AllOrders = ({ order, handleDelete }) => {
   
     const {_id, partname, orderedquantity, ordercost, imgurl, wheresend,username, phone, useremail } = order;
     return (
@@ -15,11 +15,9 @@ const AllOrders = ({ order }) => {
         <td>{phone}</td>
         <td className='pl-8'>{wheresend}</td>
         <td>
-          {(order.ordercost && !order.paid) ? <Link to={`/dashboard/payment/${_id}`}><button class="btn btn-sm">PAY</button></Link>: <span>PAID</span>}
+          {(order.ordercost && !order.paid) ? <button className='btn btn-sm bg-indigo-100 text-red-500'>Pending</button>: <button className='btn px-7 btn-sm bg-indigo-500'>PAID</button>}
         </td>
-        <td>
-          <button class="btn btn-sm" disabled={order.ordercost && order.paid}>DELETE</button>
-        </td>
+        <td className='pl-8'> < button disabled={order.ordercost && order.paid} onClick={() =>handleDelete(_id)} class="btn btn-sm bg-red-600">DELETE</button></td>
          
         
       </tr>

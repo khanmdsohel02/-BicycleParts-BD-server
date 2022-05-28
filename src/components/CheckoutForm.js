@@ -6,28 +6,29 @@ const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [payError, setPayError] = useState('')
-    const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
-    const { ordercost:price, username, useremail } = order;
+    const [transactionId, setTransactionId] = useState('')
+    const {_id:id, ordercost, username, useremail } = order;
+    
     useEffect(() => {
         
-        fetch('https://ancient-beyond-42134.herokuapp.com/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                'content-type':'application'
-            },
-            body:JSON.stringify({price})
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data?.clientSecret) {
-                    setClientSecret(data?.clientSecret)
-                }
-                
-        })
+      if (ordercost) {
+        fetch('http://localhost:5000/create-payment-intent', {
+          method: 'POST',
+          headers: {'content-type':'application/json'},
+          body:JSON.stringify({ordercost})
+      })
+          .then(res => res.json())
+          .then(data => {
+              console.log(data)
+              if (data?.clientSecret) {
+                  setClientSecret(data?.clientSecret)
+              }
+              
+      })
+       }
 
-   },[price])
+   },[ordercost])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -46,7 +47,7 @@ const CheckoutForm = ({ order }) => {
         });
 
         setPayError(error?.message || "")
-        setProcessing(true)
+      
         
         const {paymentIntent, error:intentError} = await stripe.confirmCardPayment(
             clientSecret,
@@ -62,24 +63,29 @@ const CheckoutForm = ({ order }) => {
         );
       
         if (intentError) {
-            setPayError(intentError?.message)
+          setPayError(intentError?.message)
         } else {
             setPayError('')
-            toast.success(" Your Payment Successfull", { id: "success" });
-            console.log(paymentIntent)
-         }
-        
+          toast.success("Congrats! Your Payment Successfull", { id: "success" });
+          setTransactionId(paymentIntent.id)
+
+          const payment ={
+            order: id,
+            transactionId:paymentIntent.id
+          }
 
 
-
-
-
-    };
-    
-        
-       
-
-        
+          fetch(`http://localhost:5000/order/${id}`, {
+            method: 'PATCH',
+            headers: {'content-type':'application/json'},
+            body:JSON.stringify(payment)
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+          })
+           
+         }};
     
     return (
         <>
@@ -105,6 +111,7 @@ const CheckoutForm = ({ order }) => {
       </button>
     </form>
     {payError && <p className=' text-red-600 font-semibold'>{payError}</p>}
+    {transactionId && <p className=' text-red-600 font-bold'>Trans. ID:{transactionId}</p>}
  </>
     );
 };

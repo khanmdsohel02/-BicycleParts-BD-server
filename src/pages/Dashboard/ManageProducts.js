@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `https://ancient-beyond-42134.herokuapp.com/part/${id}`;
+          const url = `http://localhost:5000/part/${id}`;
           fetch(url, {
               method:'DELETE'
           })
