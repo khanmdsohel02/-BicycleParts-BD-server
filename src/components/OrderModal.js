@@ -22,7 +22,7 @@ const OrderModal = ({ modalData }) => {
     const orderDetails = {partname, orderedquantity,ordercost,imgurl, username, useremail, phone, wheresend }
     console.log(orderDetails)
        
- fetch('http://localhost:5000/order', {
+ fetch('https://ancient-beyond-42134.herokuapp.com/order', {
   method: 'POST',
   headers: {
       'content-type':'application/json'

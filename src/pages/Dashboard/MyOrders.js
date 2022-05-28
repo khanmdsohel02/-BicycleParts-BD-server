@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
 import MyOrder from '../../components/MyOrder';
-import AllOrders from '../../components/AllOrders';
+
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
@@ -14,7 +14,7 @@ const MyOrders = () => {
            const email = user?.email;
         if (email) {
               const getMyOrder = async () => {
-              const url = `http://localhost:5000/my-order?email=${email}`;
+              const url = `https://ancient-beyond-42134.herokuapp.com/my-order?email=${email}`;
               const { data } = await axios.get(url);
               setMyOrders(data);
           }
@@ -25,7 +25,7 @@ const MyOrders = () => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })

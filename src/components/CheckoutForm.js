@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
     useEffect(() => {
         
       if (ordercost) {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://ancient-beyond-42134.herokuapp.com/create-payment-intent', {
           method: 'POST',
           headers: {'content-type':'application/json'},
           body:JSON.stringify({ordercost})
@@ -75,7 +75,7 @@ const CheckoutForm = ({ order }) => {
           }
 
 
-          fetch(`http://localhost:5000/order/${id}`, {
+          fetch(`https://ancient-beyond-42134.herokuapp.com/order/${id}`, {
             method: 'PATCH',
             headers: {'content-type':'application/json'},
             body:JSON.stringify(payment)
