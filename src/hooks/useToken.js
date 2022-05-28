@@ -5,11 +5,11 @@ const useToken = user => {
     
     useEffect(() => {
         const email = user?.user?.email;
-        const username = user?.user?.displayName
-        console.log(username)
-        const currentUser = { email, username}
+        const client = user?.user?.displayName
+        console.log(user)
+        const currentUser = { email, client}
         if(email){
-            fetch(`http://localhost:5000/user/${email}`,{
+            fetch(`https://ancient-beyond-42134.herokuapp.com/user/${email}`,{
                 method: 'PUT',
                 headers:{
                     'content-type': 'application/json'

@@ -5,7 +5,7 @@ import auth from '../../firebaseConfig';
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
-    const username = user?.displayName || 
+    const client = user?.displayName || 
     'SoHeL'
    const image = user?.photoURL || 'https://i.ibb.co/XCkK8mp/logoo.png'
     
@@ -13,15 +13,15 @@ const AddReview = () => {
         event.preventDefault()
 
         const about = event.target.about.value
-        const newPart = {username, image, about}
-       console.log(newPart)
+        const review = {user, image, about}
+       console.log(review)
     
-        fetch('http://localhost:5000/review', {
+        fetch('https://ancient-beyond-42134.herokuapp.com/review', {
           method: 'POST',
           headers: {
               'content-type':'application/json'
           },
-          body: JSON.stringify(newPart)
+          body: JSON.stringify(review)
       })
           .then(res => res.json())
           .then(result => {
@@ -48,7 +48,7 @@ const AddReview = () => {
           <input  
            name='img'
            disabled
-           value={username}
+           value={client}
            className="input input-bordered" />
              
         </div>

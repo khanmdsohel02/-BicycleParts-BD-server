@@ -3,15 +3,15 @@ import React from 'react';
 
 const AllOrders = ({ order, handleDelete }) => {
   
-    const {_id, partname, orderedquantity, ordercost, imgurl, wheresend,username, phone, useremail } = order;
+    const {_id, partname, orderedquantity, ordercost, imgurl, wheresend,client, phone, email } = order;
     return (
         <tr>
         <th><img className="w-16 rounded-full" src={imgurl} alt='img' /></th>
         <td>{partname}</td>
         <td className='pl-14'>{orderedquantity}</td>
         <td className='pl-8'>{ordercost}</td>
-        <td>{username}</td>
-        <td>{useremail}</td>
+        <td>{client}</td>
+        <td>{email}</td>
         <td>{phone}</td>
         <td className='pl-8'>{wheresend}</td>
         <td>

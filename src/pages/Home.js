@@ -15,7 +15,7 @@ const Home = () => {
     const [parts] = useParts()
      const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://ancient-beyond-42134.herokuapp.com/review')
         .then(res => res.json())
         .then(data => setReviews(data))
     }, [])
@@ -42,14 +42,14 @@ const Home = () => {
       slidesPerView={1}
       pagination={{ clickable: true }}>
                     {
-                        reviews.map(({ image, username, about, _id }) => {
+                        reviews.map(({ image, user, about, _id }) => {
                             return (
                                < SwiperSlide key={ _id} className = 'flex flex-col items-center text-center p-8 w-[100%]' >
                                <div>
                                   <img className="mb-6  w-48 mask mask-squircle" src={image} alt="client" />
                                 </div>
                                  <div>
-                                      <h3 className='text-xl text-white'>{username}</h3>
+                                      <h3 className='text-xl text-white'>{user}</h3>
                                       <p className='text-center py-4 text-white'>{about}</p>
                                  </div>
                                 </SwiperSlide>

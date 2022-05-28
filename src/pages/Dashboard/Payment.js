@@ -12,7 +12,7 @@ const Payment = () => {
     console.log(order)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`)
+        fetch(`https://ancient-beyond-42134.herokuapp.com/order/${id}`)
             .then(res => res.json())
             .then(data => {
               setOrder(data)
@@ -26,7 +26,7 @@ const Payment = () => {
            
   <div class="card w-50 max-w-md  bg-base-100 shadow-xl my-12">
   <div class="card-body">
-      <p className='text-'>Hellow, {order?.username}</p>
+      <p className='text-'>Hellow, {order?.user}</p>
     <h2 class="card-title">Pay For {order?.partname}</h2>
     <p>Provide Accurate Information For Payment</p>
     <p>Please Pay: <span>${order?.ordercost}</span></p>

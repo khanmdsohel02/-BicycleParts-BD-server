@@ -2,33 +2,31 @@ import React, {useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
 import MyOrder from '../../components/MyOrder';
+import axios from 'axios';
 
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     const [user] = useAuthState(auth);
    console.log(myOrders)
-   console.log(user?.email)
-
-
-  useEffect(() => {
+   
+   useEffect(() => {
     const email = user.email;
-      if (user) {
-        fetch(`http://localhost:5000/my-order?useremail=${email}`)
-          .then(res => res.json())
-          .then(data => {
-            setMyOrders(data)
-            
-          })
-      }
-  }, [user])
- 
+ if (email) {
+       const getMyItems = async () => {
+       const url = `https://ancient-beyond-42134.herokuapp.com/myOrders?email=${email}`;
+       const { data } = await axios.get(url);
+       setMyOrders(data);
+   }
+ getMyItems()
+  }
+}, [user])
 
   
     const handleDelete = id => {
       const proceed = window.confirm('Are you Sure?');
       if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })
@@ -43,7 +41,7 @@ const MyOrders = () => {
         
         <>
         <h1 className='mt-4 text-xl font-semibold text-indigo-700'>YOUR ORDER'S </h1>
-       <div className="overflow-x-auto w-[90%] mt-4">
+       <div className="overflow-x-auto w-[98%] mt-4">
        <table className="table w-full">
          <thead>
            <tr>

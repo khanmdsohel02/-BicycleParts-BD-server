@@ -6,7 +6,7 @@
 
 ## What has been done in the project 
 
--  The website has a navigator and a dropdown menu has been added to the navbar. The navbar has to show the user profile or username
+-  The website has a navigator and a dropdown menu has been added to the navbar. The navbar has to show the user profile or user
 
 - It uses tailwindcss, react, react hot toast, etc. to create a full stack website.
 

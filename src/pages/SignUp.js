@@ -44,7 +44,7 @@ const SignUp = () => {
     
     const onSubmit =  async data => {
      await createUserWithEmailAndPassword(data.email, data.password)
-      await updateProfile({ displayName: data.name});
+      await updateProfile({ displayName: data.client});
   };
   
 
@@ -59,7 +59,7 @@ const SignUp = () => {
               <span className="label-text">Name</span>
             </label>
             <input 
-            {...register("name", {
+            {...register("client", {
               required: {
                 value: true,
                 message:'Name is Required'
