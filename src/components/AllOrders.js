@@ -21,7 +21,7 @@ const AllOrders = ({ order, handleDelete, index }) => {
           {(order.ordercost && !order.paid) ? <button className='btn btn-sm bg-indigo-100 text-red-500'>Pending</button>: <button className='btn px-7 btn-sm bg-indigo-500 hover:bg-indigo-500'>PAID</button>}
         </td>
         <td className='pl-8'>
-          <label htmlFor={`my-delete-modal-${index}`} class="btn modal-button" disabled={order.ordercost && order.paid}>delete</label>
+          <label htmlFor={`my-delete-modal-${index}`} class="btn btn-sm bg-red-500" disabled={order.ordercost && order.paid}>delete</label>
           </td>
       </tr>
         <OrderDeleteModal order={order} index={index} handleDelete={handleDelete}/>
