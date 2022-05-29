@@ -7,7 +7,7 @@ const ManageProducts = () => {
 
   const handleDelete = id => {
       console.log(id)
-          const url = `http://localhost:5000/part/${id}`;
+          const url = `https://ancient-beyond-42134.herokuapp.com/part/${id}`;
           fetch(url, {
               method:'DELETE'
           })

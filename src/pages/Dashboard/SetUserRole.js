@@ -9,7 +9,7 @@ const SetUserRole = () => {
   const navigate = useNavigate()
   const [users, setUsers] = useState([]);
  useEffect(() => {
-   fetch('http://localhost:5000/users', {
+   fetch('https://ancient-beyond-42134.herokuapp.com/users', {
      method: 'GET',
      headers: {
       authorization: `Bearer ${localStorage.getItem('accessToken')}`

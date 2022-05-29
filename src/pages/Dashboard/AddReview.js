@@ -16,7 +16,7 @@ const AddReview = () => {
         const review = {client, image, about}
        console.log(review)
     
-        fetch('http://localhost:5000/review', {
+        fetch('https://ancient-beyond-42134.herokuapp.com/review', {
           method: 'POST',
           headers: {
               'content-type':'application/json'

@@ -19,7 +19,7 @@ const AddProduct = () => {
         const newPart = {email, name, price, quantity, image, about}
        console.log(newPart)
     
- fetch('http://localhost:5000/part', {
+ fetch('https://ancient-beyond-42134.herokuapp.com/part', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'
