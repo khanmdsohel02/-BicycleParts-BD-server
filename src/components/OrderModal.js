@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import auth from '../firebaseConfig';
@@ -7,6 +7,7 @@ import auth from '../firebaseConfig';
 const OrderModal = ({ modalData }) => {
   const {image, name, quantity, price } = modalData;
   const [user] = useAuthState(auth);
+  
 
   const handleOrder = event => {
     event.preventDefault();
@@ -21,8 +22,9 @@ const OrderModal = ({ modalData }) => {
 
     const orderDetails = {partname, orderedquantity,ordercost,imgurl, client, email, phone, wheresend }
     console.log(orderDetails)
+    
        
- fetch('https://ancient-beyond-42134.herokuapp.com/order', {
+ fetch('http://localhost:5000/order', {
   method: 'POST',
   headers: {
       'content-type':'application/json'
@@ -52,7 +54,7 @@ const OrderModal = ({ modalData }) => {
     <h3 className="font-bold text-lg text-center">{name}</h3>
     <form onSubmit={handleOrder} className='grid grid-cols-1 gap-4 justify-items-center mt-4'>
     <input type="text" name='partname' value={name} disabled className="input input-bordered w-full max-w-xs" />
-    <input type="number" name='orderedquantity' placeholder="Order more than 500 unit" required className="input input-bordered w-full max-w-xs" />
+    <input type="number" name='orderedquantity' defaultValue={500} placeholder="Order more than 500 unit" required className="input input-bordered w-full max-w-xs" />
     <input type="text" name='user' required value={user?.displayName} disabled className="input input-bordered w-full max-w-xs" />
     <input type="email" required value={user?.email} disabled className="input input-bordered w-full max-w-xs" />
     <input type="number" name='phone' required placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />

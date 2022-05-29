@@ -5,8 +5,9 @@ import useParts from '../../hooks/useParts';
 const ManageProducts = () => {
     const [parts, setParts] = useParts()
 
-    const handleDelete = id => {
-          const url = `https://ancient-beyond-42134.herokuapp.com/part/${id}`;
+  const handleDelete = id => {
+      console.log(id)
+          const url = `http://localhost:5000/part/${id}`;
           fetch(url, {
               method:'DELETE'
           })
@@ -32,8 +33,9 @@ const ManageProducts = () => {
     </tr>
   </thead>
   <tbody>
- { parts.map(part =>
-    <ManagePart
+ { parts.map((part,index) =>
+   <ManagePart
+     index={index}
       key={part._id}
       part ={part}
       handleDelete={handleDelete}
