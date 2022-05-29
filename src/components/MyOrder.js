@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import OrderDeleteModal from './OrderDeleteModal';
 
-const MyOrder = ({ order, index}) => {
+const MyOrder = ({handleDelete, order, index}) => {
     const {_id, partname, orderedquantity, ordercost, imgurl, wheresend,transactionId } = order;
     
     return (
@@ -17,7 +17,7 @@ const MyOrder = ({ order, index}) => {
         </td>
         <td className='pl-8'> < label disabled={order.ordercost && order.paid} class="btn btn-sm bg-red-500" htmlFor={`my-delete-modal-${index}`}>DELETE</label></td>
         <td className='pl-8'>{transactionId}</td>
-        <OrderDeleteModal index={index}/>
+        <OrderDeleteModal order={order} index={index} handleDelete={handleDelete}/>
       </tr>
     );
 };
