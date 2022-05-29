@@ -1,7 +1,8 @@
 import React from 'react';
+import PartDeleteModal from './PartDeleteModal';
 
 const ManagePart = ({ part, handleDelete }) => {
-    const {_id, name, image, quantity, price } = part;
+    const {name, image, quantity, price } = part;
 
     return (
         <tr>
@@ -10,7 +11,8 @@ const ManagePart = ({ part, handleDelete }) => {
         <td>{name}</td>
         <td>{quantity}</td>
         <td>{price}</td>
-        <td><button onClick={() =>handleDelete(_id)} className="btn btn-sm bg-indigo-400 hover:bg-indigo-200 hover:text-red-500">dalete</button></td>
+        <td><label for="part-delete" className="btn btn-sm bg-indigo-400 hover:bg-indigo-200 hover:text-red-500">dalete</label></td>
+        <PartDeleteModal part={part} handleDelete={handleDelete}/>
       </tr>
     
     );

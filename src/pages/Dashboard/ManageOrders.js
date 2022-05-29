@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AllOrders from '../../components/AllOrders';
 
+
 const ManageOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
-    
    console.log(allOrders)
     
     useEffect(() => {
@@ -18,9 +18,7 @@ const ManageOrders = () => {
     }, [])
   
     const handleDelete = id => {
-      const proceed = window.confirm('Are you Sure?');
-      if (proceed) {
-          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
+       const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })
@@ -29,7 +27,7 @@ const ManageOrders = () => {
                   console.log(data);
                   const remaining = allOrders.filter(order => order._id !== id);
                   setAllOrders(remaining)
-          })}}
+          })}
     return (
         <>
         <h1 className='mt-4 text-xl font-semibold text-indigo-700'>MANAGE ORDER'S </h1>
@@ -59,7 +57,7 @@ const ManageOrders = () => {
              )  }
          </tbody>
        </table>
-       </div>
+        </div>
        </>
     );
 };

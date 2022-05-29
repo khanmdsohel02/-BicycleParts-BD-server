@@ -24,9 +24,7 @@ const MyOrders = () => {
 
   
     const handleDelete = id => {
-      const proceed = window.confirm('Are you Sure?');
-      if (proceed) {
-          const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
+           const url = `https://ancient-beyond-42134.herokuapp.com/order/${id}`;
           fetch(url, {
               method:'DELETE'
           })
@@ -35,7 +33,7 @@ const MyOrders = () => {
                   console.log(data);
                   const remaining = myOrders.filter(order => order._id !== id);
                   setMyOrders(remaining)
-          })}}
+          })}
   
     return (
         

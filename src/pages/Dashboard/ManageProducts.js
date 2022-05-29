@@ -6,8 +6,6 @@ const ManageProducts = () => {
     const [parts, setParts] = useParts()
 
     const handleDelete = id => {
-      const proceed = window.confirm('Are you Sure?');
-      if (proceed) {
           const url = `https://ancient-beyond-42134.herokuapp.com/part/${id}`;
           fetch(url, {
               method:'DELETE'
@@ -17,7 +15,7 @@ const ManageProducts = () => {
                   console.log(data);
                   const remaining = parts.filter(part => part._id !== id);
                   setParts(remaining)
-          })}}
+          })}
  
     return (
 <>
