@@ -8,8 +8,8 @@ const OrderDeleteModal = ({ order, handleDelete, index }) => {
   <div class="modal-box">
     <h3 class="font-bold text-lg uppercase">are you sure! Do you want to delete this part?</h3>
     <div class="modal-action">
-    < label onClick={() =>handleDelete(order._id)} for={`my-delete-modal-${index}`} class="btn btn-sm bg-red-600">Yes</label>
-    <label for={`my-delete-modal-${index}`} class="btn btn-sm bg-indigo-400">Cancel</label>
+    < label onClick={() =>handleDelete(order._id)} htmlFor={`my-delete-modal-${index}`} class="btn btn-sm bg-red-600">Yes</label>
+    <label htmlFor={`my-delete-modal-${index}`} class="btn btn-sm bg-indigo-400">Cancel</label>
     </div>
   </div>
 </div> 

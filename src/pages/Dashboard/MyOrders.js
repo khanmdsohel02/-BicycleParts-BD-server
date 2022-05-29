@@ -54,8 +54,9 @@ const MyOrders = () => {
            </tr>
          </thead>
          <tbody>
-        {myOrders.map(order =>
+        {myOrders.map((order, index) =>
            <MyOrder
+           index ={index}
              key={order._id}
             order={order}
             handleDelete ={handleDelete}
